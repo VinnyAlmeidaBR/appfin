@@ -1,6 +1,6 @@
 @extends('template')
 
-@section('titulo', 'Extrato')
+@section('titulo', 'Seus Dados')
 
 @section('nav-complementar')
 <li class="nav-item">
@@ -10,17 +10,13 @@
 
 @section('conteudo')
 <header class="text-center">
-    EXTRATO - Saldo: R$ 9.999,00
+    Seus Dados
 </header>
 
 
 <div class="container d-flex">
-    <div class="col-md-6 p-3">
-        <h2>Receitas</h2>
-    </div>
-
-    <div class="col-md-6 p-3">
-        <h2>Despesas</h2>
+    <div class="col-md-12 p-3">
+        <h2>Olá Fulano</h2>
     </div>
 </div>
 
