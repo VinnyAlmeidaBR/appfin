@@ -52,10 +52,4 @@ Route::middleware([
     )->name('seus_gastos');
 
 
-
-
-
-    // Route::get('/dashboard', function () {
-    //     return view('dashboard');
-    // })->name('dashboard');
 });

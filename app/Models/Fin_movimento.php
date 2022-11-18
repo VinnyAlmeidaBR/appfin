@@ -8,5 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Fin_movimento extends Model
 {
     use HasFactory;
-    //definir relacionamento com a tabela de usuário
+    protected $fillable = ['descricao','valor','tipo'];
+    //definir relacionamento com a tabela de usuário - função c/ o nome do Model
+    public function user(){
+        return $this->belongsTo('App/Models/User');
+    } 
+
 }
