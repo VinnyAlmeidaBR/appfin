@@ -10,6 +10,6 @@ class MovimentoController extends Controller
 {
     //Método gravar para armazenar o movimento
     public function gravar(Request $request){
-        dd($request);
+        // dd($request);
     }
 }
