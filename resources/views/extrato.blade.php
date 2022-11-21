@@ -13,6 +13,7 @@
     EXTRATO - Saldo: R$ 9.999,00
 </header>
 
+<?php dd($despesas); dd($receitas);?>
 
 <div class="container d-flex">
     <div class="col-md-6 p-3">
