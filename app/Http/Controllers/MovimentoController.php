@@ -15,11 +15,22 @@ class MovimentoController extends Controller
         //Load registros onde o tipo=receita e user_id=$user_id
         $receitas=Fin_movimento::where ('user_id',$user_id)->where('tipo','receita')->get();
         $despesas=Fin_movimento::where ('user_id',$user_id)->where('tipo','despesa')->get();  
+        $totReceitas=$receitas->sum('valor');
+        $totDespesas=$despesas->sum('valor');
+        $saldoReal=$totReceitas - $totDespesas;
         
 
 
-        //carrega a view extrato enviando as variáveis $despesas e $receitas
-        return view('extrato',['receitas' => $receitas,'despesas' => $despesas]);
+        //carrega a View extrato enviando as variáveis $despesas e $receitas
+
+        // $parametros = [
+        //     'totDespesas'=>$totDespesas,
+        //     'totReceitas'=>$totReceitas,
+        //     'receitas'=>$receitas,
+        //     'despesas'=>$despesas
+        // ];
+
+        return view('extrato',['saldoReal'=>$saldoReal,'totReceitas'=>$totReceitas,'totDespesas'=>$totDespesas,'receitas' => $receitas,'despesas' => $despesas]);
     }
 
 
@@ -38,6 +49,7 @@ class MovimentoController extends Controller
         $movimento->descricao = $request->descricao; 
         $movimento->tipo = $request->tipo;
         $movimento->valor = $request->valor;
+        
 
         $movimento->save();
 
