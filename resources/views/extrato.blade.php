@@ -29,7 +29,7 @@
                     <div class="card-footer">
                         <span>{{ \Carbon\Carbon::parse($receita->created_at)->format('d/m/Y')}}</span>
                         <a href="#" class="mx-3" ><i class="fa-solid fa-trash"></i></a>
-                        <a href="#"              ><i class="fa-regular fa-pen-to-square"></i></a>
+                        <a href="{{route('editar',[$receita->id])}}"><i class="fa-regular fa-pen-to-square"></i></a>
                     </div>
                 </div>
         @endforeach
@@ -38,7 +38,9 @@
 
     <div class="col-md-6 p-3">
         <h2>Despesas R${{$totDespesas}}</h2>
-
+        @if(count($despesas)==0)
+        <p>Não há movimentação de receitas</p>
+        @else 
         @foreach($despesas as $despesa)
 
         <div class="card mb-3">            
@@ -48,11 +50,12 @@
             </div>
             <div class="card-footer ">
                 <span>{{ \Carbon\Carbon::parse($despesa->created_at)->format('d/m/Y')}}</span>
-                <a href="#" class="mx-3"><i class="fa-solid fa-trash"></i></a>
-                <a href="#"             ><i class="fa-regular fa-pen-to-square"></i></a>
+                <a href="#"class="mx-3"><i class="fa-solid fa-trash"></i></a>
+                <a href="{{route('editar',[$despesa->id])}}"><i class="fa-regular fa-pen-to-square"></i></a>
             </div>
         </div>
     @endforeach
+    @endif
     </div>
 </div>
 
