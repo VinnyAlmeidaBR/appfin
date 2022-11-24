@@ -10,13 +10,13 @@
 
 @section('conteudo')
 <header class="text-center fs-1 fw-bold @if($totReceitas - $totDespesas < 0 )text-danger @endif">
-    EXTRATO - Saldo: R$ {{$saldoReal}} 
+    EXTRATO - Saldo: R$ {{ number_format($saldoReal,2,',','.')}} 
 </header>
 
 
 <div class="container d-flex">
     <div class="col-md-6 p-3">
-        <h2>Receitas: R${{$totReceitas}}</h2>
+        <h2>Receitas: R$ {{ number_format($totReceitas, 2,',','.')}}</h2>
         @if(count($receitas)==0)
         <p>Não há movimentação de receitas</p>
         @else 
@@ -24,7 +24,7 @@
                 <div class="card">            
                     <div class="card-body">
                         <p class="card-title">{{$receita->descricao}}</p>
-                        <p class="card-text">R${{$receita->valor}}</p>
+                        <p class="card-text">R${{number_format($receita->valor,2,',','.')}}</p>
                     </div>
                     <div class="card-footer">
                         <span>{{ \Carbon\Carbon::parse($receita->created_at)->format('d/m/Y')}}</span>
