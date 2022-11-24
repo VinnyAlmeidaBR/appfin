@@ -28,7 +28,11 @@
                     </div>
                     <div class="card-footer">
                         <span>{{ \Carbon\Carbon::parse($receita->created_at)->format('d/m/Y')}}</span>
-                        <a href="#" class="mx-3" ><i class="fa-solid fa-trash"></i></a>
+                        <form method="POST" action="{{route('deletar',[$receita->id])}}" class="d-inline">
+                            @csrf 
+                            @method('DELETE')
+                            <button type="submit" onClick="if(!confirm('Tem certeza que deseja excluir?')){return false}" class=" btn btn-link mx-3"><i class="fa-solid fa-trash"></i></a>
+                        </form> 
                         <a href="{{route('editar',[$receita->id])}}"><i class="fa-regular fa-pen-to-square"></i></a>
                     </div>
                 </div>
@@ -50,7 +54,11 @@
             </div>
             <div class="card-footer ">
                 <span>{{ \Carbon\Carbon::parse($despesa->created_at)->format('d/m/Y')}}</span>
-                <a href="#"class="mx-3"><i class="fa-solid fa-trash"></i></a>
+                <form method="POST" action="{{route('deletar',[$despesa->id])}}" class="d-inline">
+                    @csrf 
+                    @method('DELETE')
+                    <button type="submit" onClick="if(!confirm('Tem certeza que deseja excluir?')){return false}" class=" btn btn-link mx-3"><i class="fa-solid fa-trash"></i></a>
+                </form> 
                 <a href="{{route('editar',[$despesa->id])}}"><i class="fa-regular fa-pen-to-square"></i></a>
             </div>
         </div>

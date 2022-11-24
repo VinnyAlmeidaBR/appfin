@@ -69,5 +69,7 @@ Route::middleware([
     Route::put('/atualiza',[MovimentoController::class,'atualizar'])
     ->name('atualiza');
 
+    Route::delete('/deletar/{id}',[MovimentoController::class,'deletar'])->name('deletar');
+
 
 });
