@@ -41,7 +41,7 @@
     </div>
 
     <div class="col-md-6 p-3">
-        <h2>Despesas R${{$totDespesas}}</h2>
+        <h2>Despesas R${{ number_format($totDespesas,2,',','.')}}</h2>
         @if(count($despesas)==0)
         <p>Não há movimentação de receitas</p>
         @else 
@@ -50,7 +50,7 @@
         <div class="card mb-3">            
             <div class="card-body">
                 <p class="card-title">{{$despesa->descricao}}</p>
-                <p class="card-text">R${{$despesa->valor}}</p>
+                <p class="card-text">R${{ number_format($despesa->valor,2,',','.')}}</p>
             </div>
             <div class="card-footer ">
                 <span>{{ \Carbon\Carbon::parse($despesa->created_at)->format('d/m/Y')}}</span>
